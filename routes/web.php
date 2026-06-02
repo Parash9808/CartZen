@@ -31,6 +31,9 @@ Route::middleware('auth')->group(function () {
         Route::resource('products', VendorProductController::class);
         Route::get('/orders', [VendorOrderController::class, 'index'])->name('orders.index');
     });
+    Route::get('/dashboard', function () {
+    return "Dashboard Working";
+})->name('dashboard');
 });
 
 require __DIR__.'/auth.php';
