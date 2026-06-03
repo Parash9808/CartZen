@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Category;
-use App\Models\Vendor;
+use App\Models\VendorProfile;
 
 class FrontendController extends Controller
 {
@@ -12,7 +12,7 @@ class FrontendController extends Controller
     {
         $featuredProducts = Product::latest()->take(8)->get();
         $categories = Category::all();
-        $vendors = Vendor::latest()->take(6)->get();
+        $vendors = VendorProfile::latest()->take(6)->get();
         return view('frontend.home', compact('featuredProducts', 'categories', 'vendors'));
     }
 
@@ -31,7 +31,7 @@ class FrontendController extends Controller
 
     public function vendorStore($id)
     {
-        $vendor = Vendor::findOrFail($id);
+        $vendor = VendorProfile::findOrFail($id);
         $products = Product::where('vendor_id', $id)->paginate(12);
         return view('frontend.vendor-store', compact('vendor', 'products'));
     }

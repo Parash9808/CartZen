@@ -6,6 +6,7 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -18,26 +19,29 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
-class AdminPanelProvider extends PanelProvider
+class VendorPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->id('admin')
-            ->path('admin')
+            ->id('vendor')
+            ->path('vendor')
             ->login()
             ->colors([
                 'primary' => Color::Amber,
             ])
             ->discoverResources(
-                in: app_path('Filament/Admin/Resources'),
-                for: 'App\Filament\Admin\Resources'
+                in: app_path('Filament/Vendor/Resources'),
+                for: 'App\\Filament\Vendor\\Resources'
             )
             ->discoverPages(
-                in: app_path('Filament/Admin/Pages'),
-                for: 'App\Filament\Admin\Pages'
+                in: app_path('Filament/Vendor/Pages'),
+                for: 'App\\Filament\Vendor\\Pages'
             )
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
+            ->discoverWidgets(
+                in: app_path('Filament/Widgets'),
+                for: 'App\Filament\Widgets'
+            )
             ->widgets([
                 AccountWidget::class,
                 FilamentInfoWidget::class,
