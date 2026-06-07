@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\Products\Schemas;
+namespace App\Filament\Vendor\Resources\Products\Schemas;
 
-use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
@@ -25,19 +25,31 @@ class ProductForm
                 TextInput::make('slug')
                     ->required(),
                 Textarea::make('description')
-                    ->required()
+                    ->default(null)
                     ->columnSpanFull(),
+                TextInput::make('brand')
+                    ->default(null),
+                TextInput::make('sku')
+                    ->label('SKU')
+                    ->default(null),
                 TextInput::make('price')
+                    ->required()
+                    ->numeric()
+                    ->prefix('$'),
+                TextInput::make('discounted_price')
                     ->required()
                     ->numeric()
                     ->prefix('$'),
                 TextInput::make('stock')
                     ->required()
-                    ->numeric()
-                    ->default(0),
-                FileUpload::make('image')
-                    ->image(),
-                Toggle::make('is_active')
+                    ->numeric(),
+                TextInput::make('thumbnail')
+                    ->default(null),
+                Select::make('status')
+                    ->options(['available' => 'Available', 'out_of_stock' => 'Out of stock'])
+                    ->default('available')
+                    ->required(),
+                Toggle::make('featured')
                     ->required(),
             ]);
     }

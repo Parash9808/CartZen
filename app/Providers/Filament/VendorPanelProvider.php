@@ -32,12 +32,15 @@ class VendorPanelProvider extends PanelProvider
             ])
             ->discoverResources(
                 in: app_path('Filament/Vendor/Resources'),
-                for: 'App\\Filament\Vendor\\Resources'
+                for: 'App\Filament\Vendor\Resources'
             )
             ->discoverPages(
                 in: app_path('Filament/Vendor/Pages'),
-                for: 'App\\Filament\Vendor\\Pages'
+                for: 'App\Filament\Vendor\Pages'
             )
+            ->pages([
+                Dashboard::class,
+            ])
             ->discoverWidgets(
                 in: app_path('Filament/Widgets'),
                 for: 'App\Filament\Widgets'
@@ -50,15 +53,14 @@ class VendorPanelProvider extends PanelProvider
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
                 StartSession::class,
-                AuthenticateSession::class,
                 ShareErrorsFromSession::class,
-                VerifyCsrfToken::class,
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
             ->authMiddleware([
                 Authenticate::class,
+
             ]);
     }
 }

@@ -16,42 +16,42 @@ class CategorySeeder extends Seeder
         $electronics =Category::create([
             'name' => 'Electronics',
             'slug' => 'electronics',
-            'image'=> 'categories/electronics.jpg',
+            'image'=> null,
         ]);
         $fashion =Category::create([
             'name' => 'Fashion',
             'slug' => 'fashion',
-            'image'=> 'categories/fashion.jpg',
+            'image'=> null,
         ]);
         $homeandliving =Category::create([
             'name' => 'Home & Living',
             'slug' => 'home&living',
-            'image'=> 'categories/home&living.jpg',
+            'image'=> null,
         ]);
         $babytoy =Category::create([
             'name' => 'Baby & Toys',
             'slug' => 'baby&toys',
-            'image'=> 'categories/baby&toys.jpg',
+            'image'=> null,
         ]);
         $sports =Category::create([
             'name' => 'Sports',
             'slug' => 'sports',
-            'image'=> 'categories/sports.jpg',
+            'image'=> null,
         ]);
         $health =Category::create([
             'name' => 'Health',
             'slug' => 'health',
-            'image'=> 'categories/health.jpg',
+            'image'=> null,
         ]);
         $automotive =Category::create([
             'name' => 'Automotive',
             'slug' => 'automotive',
-            'image'=> 'categories/automotive.jpg',
+            'image'=> null,
         ]);
         $books =Category::create([
             'name' => 'Books',
             'slug' => 'books',
-            'image'=> 'categories/books.jpg',
+            'image'=> null,
         ]);
     }
 }

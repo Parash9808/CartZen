@@ -26,7 +26,7 @@ class ProductSeeder extends Seeder
         'price' => 100000,
         'discounted_price' => 90000,
         'stock' => 10,
-        'thumbnail' => 'products/iphone13.jpg',
+        'thumbnail' => 'products/iphone-13.jpg',
         'status' => 'available',
         'featured' => true
        ]);
